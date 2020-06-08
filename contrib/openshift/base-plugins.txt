@@ -1,0 +1,104 @@
+openshift-login:1.0.23
+openshift-client:1.0.32
+
+
+# kubernetes plugin - https://wiki.jenkins-ci.org/display/JENKINS/Kubernetes+Plugin
+# 1.7.1 fixed https://jenkins.io/security/advisory/2018-06-04/#SECURITY-883
+# 1.12.0 fixed https://jenkins.io/security/advisory/2018-07-30/#SECURITY-1016
+# 1.12.8 fixed the https://issues.jenkins-ci.org/browse/JENKINS-53260 we introduced
+pipeline-model-extensions:1.6.0
+kubernetes:1.25.4
+
+# fabric8 openshift sync
+openshift-sync:1.0.45
+
+# we leverage this plugin in the openshift-client DSL groovy shim
+lockable-resources:2.8
+
+# explicitly pull in plugins previously pulled in by dependencies because of
+# security advisories  ...exclude plugins from
+# advisories that were not previously pulled in by what is listed above
+# also, as the plugins above raise their dependency levels for these plugins let's see about removing
+# items from the list below
+#
+# processed sec adv https://jenkins.io/blog/2017/07/10/security-advisory/
+# processed sec adv https://jenkins.io/security/advisory/2017-08-07/
+# processed sec adv https://jenkins.io/security/advisory/2018-01-22/
+# processed sec adv https://jenkins.io/security/advisory/2018-02-05/
+# processed sec adv https://jenkins.io/security/advisory/2018-02-14/
+# processed sec adv https://jenkins.io/security/advisory/2018-02-26/
+# processed sec adv https://jenkins.io/security/advisory/2018-03-26/
+# processed sec adv https://jenkins.io/security/advisory/2018-04-16/
+# processed sec adv https://jenkins.io/security/advisory/2018-06-04/
+# processed sec adv https://jenkins.io/security/advisory/2018-06-25/
+# processed sec adv https://jenkins.io/security/advisory/2018-09-25/
+# processed sec adv https://jenkins.io/security/advisory/2018-10-29/
+#
+htmlpublisher:1.23
+mailer:1.32
+config-file-provider:3.6.3
+docker-commons:1.16
+job-dsl:1.77
+parameterized-trigger:2.36
+pipeline-build-step:2.12
+pipeline-input-step:2.11
+script-security:1.72
+credentials-binding:1.23
+junit:1.29
+workflow-durable-task-step:2.35
+workflow-support:3.4
+git:4.2.2
+mercurial:2.10
+subversion:2.13.1
+github:1.30.0
+github-branch-source:2.7.1
+jira:3.0.15
+workflow-cps:2.80
+pipeline-model-definition:1.6.0
+token-macro:2.12
+
+# Legacy stuff
+mapdb-api:1.0.9.0
+
+# remote loader https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Remote+Loader+Plugin
+workflow-remote-loader:1.5
+
+matrix-project:1.14
+ssh-credentials:1.18.1
+
+# Pipeline Utility Steps Plugin - https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Utility+Steps+Plugin
+pipeline-utility-steps:2.5.0
+
+# some plugins helpful for global shared libs were broken out of workflow aggregator
+pipeline-github-lib:1.0
+github-organization-folder:1.6
+
+# Jenkins v2 specific
+matrix-auth:2.6.1
+# aside from general upgrade, needed to bump blueocean to reconcile shared dependency
+# with k8s plugin
+blueocean:1.23.1
+
+# Pipeline plugin - https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
+# 2.5 now includes pipeline-model-definition (declaritive pipeline)
+# 2.4 brought in pipeline-milestone-step
+workflow-aggregator:2.6
+
+# Custom Plugins
+git-parameter:0.9.12
+jobConfigHistory:2.26
+ws-cleanup:0.38
+resource-disposer:0.14
+nexus-artifact-uploader:2.10
+email-ext:2.69
+ssh-agent:1.19
+credentials:2.3.7
+testng-plugin:1.15
+build-user-vars-plugin:1.5
+
+workflow-cps-global-lib:2.16
+google-oauth-plugin:1.0.0
+sonar:2.11
+maintenance-jobs-scheduler:0.1.0
+cvs:2.16
+branch-api:2.5.6
